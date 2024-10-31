@@ -8,6 +8,9 @@ BNT package refers to Behavioural Neurology Toolbox, (c) Vadim Frolov 2018 (http
 ## cellDetect:
 Integrate the detection of place cell, grid cell, border cell, head direction cell and speed cell into one code. Users can execute the code with personalized inputs.  
 Note: the threshold is 95th and stability is not used for detecting cells. If one wants to have more criteria, one can write custom scripts to detect cells by using output values.
+cellDetect_run_ms.m: example code for miniscope;
+cellDetect_run_tp.m: example code for two-photon;
+cellDetect_speed.m: example code for speed analysis in two-photon recording.
 
 ## decode:
 Use Naive Bayes Decoder to decode the position or head direction of mice. Modified the code from Kai Gao.
