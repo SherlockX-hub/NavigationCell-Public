@@ -70,7 +70,7 @@
 %                      OR a struct, containing the threshold of each cell type;
 %       draw_fig: bool, whether draw plots or not (default: 1);
 %                 OR a struct, containing whrther each types;
-%       SFP: a width*height*cellNum matrix, spatial footprint;
+%       SFP: a cellNum*width*height matrix, spatial footprint;
 %       fig_fmt: a 1*n cell, containing all the formats of saved figures;
 %                (default: {'.fig'});
 %       color_cell: a struct, containing all the colors of cells in SFP figures ([R G B]);
@@ -584,6 +584,8 @@ function [pos_modified, pos_modified_full, hd_dir_modified] = speedFilter(speed_
 %     end
     
     if ~speed_filter(1)
+        if spatial_dimension(1) == 2, pos_modified = pos;
+        elseif spatial_dimension(1) == 1, pos_modified = pos(:, [1 spatial_dimension(2)+1]); end % select x or y;
     else
         speed = speed2D(pos(:,2), pos(:,3), pos(:,1));
         speed_filter_i = speed < speed_filter(2) | speed > speed_filter(3);
